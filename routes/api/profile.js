@@ -5,6 +5,6 @@ const router = express.Router();
 //@desc   This is to test the route
 //@access Public via middleware
 
-router.get("/", (req, res) => res.send("User route"));
+router.get("/", (req, res) => res.send("Profile route"));
 
 module.exports = router;
