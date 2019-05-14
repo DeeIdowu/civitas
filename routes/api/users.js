@@ -2,7 +2,9 @@ const express = require("express");
 const router = express.Router();
 const gravatar = require("gravatar");
 const Bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
 const { check, validationResult } = require("express-validator/check");
+const config = require("config");
 
 //for user info from User Schema
 const User = require("../../models/User");
@@ -40,7 +42,9 @@ router.post(
 
       if (user) {
         //bad request
-        res.status(400).json({ errors: [{ msg: "User already exists" }] });
+        return res
+          .status(400)
+          .json({ errors: [{ msg: "User already exists" }] });
       }
 
       //Get users gravatar based on email
@@ -59,16 +63,30 @@ router.post(
       });
 
       //Encrypt the password via Bcrypt before saving new user
-      const salt = await Bcrypt.genSalt(10); //10 encryption iterations
+      const salt = await bcrypt.genSalt(10); //10 encryption iterations
 
-      user.password = await Bcrypt.hash(password, salt); //takes in password and salt
+      user.password = await bcrypt.hash(password, salt); //takes in password and salt
 
       //to save user to database via promise:
 
       await user.save();
 
-      //Return JsonWebToken, for authentication and allowing user to be logged in immediately.
-      res.send("User registered");
+      //Return JsonWebToken, for authentication and allowing user to be logged in immediately and access protected routes.
+      //Done via promise
+      const payload = {
+        user: {
+          id: user.id
+        }
+      };
+      jwt.sign(
+        payload,
+        config.get("jwtToken"),
+        { expiresIn: 36000 },
+        (err, token) => {
+          if (err) throw err;
+          res.json({ token });
+        }
+      ); //default: 3600 for session expiry
     } catch (err) {
       console.error(err.message);
       res.status(500).send("Server error");

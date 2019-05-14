@@ -1,3 +1,4 @@
 {
-  "mongoURI": "mongodb+srv://Wilbert:white@civitas-ttkb2.mongodb.net/test?retryWrites=true"
+  "mongoURI": "mongodb+srv://Wilbert:white@civitas-ttkb2.mongodb.net/test?retryWrites=true",
+  "jwtSecret": "mysecrettoken"
 }
