@@ -4,7 +4,7 @@
   "description": "Social Network for Web Devs",
   "main": "server.js",
   "scripts": {
-    "start": "node server",
+    "start": "nodemon server.js",
     "server": "nodemon server"
   },
   "repository": {
