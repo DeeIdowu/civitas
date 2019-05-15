@@ -1,4 +1,6 @@
 {
   "mongoURI": "mongodb+srv://Wilbert:white@civitas-ttkb2.mongodb.net/test?retryWrites=true",
-  "jwtSecret": "mysecrettoken"
+  "jwtSecret": "mysecrettoken",
+  "githubClientId": "288804b570db598a7433",
+  "githubSecret": "188979e32fff3e1df79c6f24961f037e53902710"
 }
