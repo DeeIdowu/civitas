@@ -8,7 +8,7 @@ const Login = () => {
   });
 
   /* destructuring */
-  const { name, email, password, password2 } = formData;
+  const { email, password } = formData;
 
   /*onChange handler utilized for event of user input*/
 
