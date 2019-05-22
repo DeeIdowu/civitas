@@ -8,7 +8,7 @@ export default function(state = initialState, action) {
   const { type, payload } = action;
 
   //evaluation of type of action
-  switch (action.type) {
+  switch (type) {
     case SET_ALERT:
       return [...state, payload];
     case REMOVE_ALERT:
