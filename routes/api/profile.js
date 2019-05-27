@@ -326,19 +326,16 @@ router.put(
 //@desc   Deleting profile education
 //@access Private
 
-router.delete("/education/:edu_id", auth, async (req, res) => {
+router.delete("/", auth, async (req, res) => {
   try {
-    //Get profile:
-    const profile = await Profile.findOne({ user: req.user.id });
-    //Get the remove index:
-    const removeIndex = profile.education
-      .map(item => item.id)
-      .indexOf(req.params.edu_id);
+    // Remove user posts
+    await Post.deleteMany({ user: req.user.id });
+    // Remove profile
+    await Profile.findOneAndRemove({ user: req.user.id });
+    // Remove user
+    await User.findOneAndRemove({ _id: req.user.id });
 
-    profile.education.splice(removeIndex, 1);
-
-    await profile.save();
-    res.json(profile);
+    res.json({ msg: "User deleted" });
   } catch (err) {
     console.error(err.message);
     res.status(500).send("Server Error");
