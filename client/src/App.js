@@ -11,6 +11,7 @@ import store from "./store";
 import { loadUser } from "./actions/auth";
 import setAuthToken from "./utils/setAuthToken";
 import "./App.css";
+import Dashboard from "./components/dashboard/Dashboard";
 
 //checking if theres token, then place in global header via src/utils/setAuthToken.js
 //checking via localstorage and doing check on app.js as well
@@ -33,6 +34,7 @@ const App = () => {
             <Switch>
               <Route exact path="/register" component={Register} />
               <Route exact path="/login" component={Login} />
+              <Route exact path="/dashboard" component={Dashboard} />
             </Switch>
           </section>
         </Fragment>

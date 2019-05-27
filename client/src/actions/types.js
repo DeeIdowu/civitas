@@ -10,3 +10,8 @@ export const AUTH_ERROR = "AUTH_ERROR";
 //for authentication, working with https via axios:
 export const REGISTER_SUCCESS = "REGISTER_SUCCESS";
 export const REGISTER_FAIL = "REGISTER_FAIL";
+//for successful login
+export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
+export const LOGIN_FAIL = "LOGIN_FAIL";
+//for successful logout
+export const LOGOUT = "LOGOUT";
