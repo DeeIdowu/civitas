@@ -7,6 +7,7 @@ const { check, validationResult } = require("express-validator/check");
 
 const Profile = require("../../models/Profile");
 const User = require("../../models/User");
+const Post = require("../../models/Post");
 
 //@route  GET api/profile/me -> endpoint based on user id in the token
 //@desc   To get current users profile
