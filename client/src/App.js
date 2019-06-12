@@ -18,6 +18,7 @@ import AddExperience from "./components/profile-forms/AddExperience";
 import AddEducation from "./components/profile-forms/AddEducation";
 import Profiles from "./components/profiles/Profiles";
 import ProfileItem from "./components/profiles/ProfileItem";
+import Posts from "./components/posts/Posts";
 
 //checking if theres token, then place in global header via src/utils/setAuthToken.js
 //checking via localstorage and doing check on app.js as well
@@ -58,6 +59,7 @@ const App = () => {
                 path="/add-education"
                 component={AddEducation}
               />
+              <PrivateRoute exact path="/posts" component={Posts} />
             </Switch>
           </section>
         </Fragment>
