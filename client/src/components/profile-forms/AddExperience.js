@@ -52,7 +52,6 @@ const AddExperience = ({ addExperience, history }) => {
             type="text"
             placeholder="* Company"
             name="company"
-            required
             value={company}
             onChange={e => onChange(e)}
             required
@@ -65,7 +64,6 @@ const AddExperience = ({ addExperience, history }) => {
             name="location"
             value={location}
             onChange={e => onChange(e)}
-            required
           />
         </div>
         <div className="form-group">
@@ -73,9 +71,8 @@ const AddExperience = ({ addExperience, history }) => {
           <input
             type="date"
             name="from"
-            value={current}
+            value={from}
             onChange={e => onChange(e)}
-            required
           />
         </div>
         <div className="form-group">
@@ -101,7 +98,6 @@ const AddExperience = ({ addExperience, history }) => {
             value={to}
             onChange={e => onChange(e)}
             disabled={toDateDisabled ? "disabled" : ""}
-            required
           />
         </div>
         <div className="form-group">
@@ -112,11 +108,10 @@ const AddExperience = ({ addExperience, history }) => {
             placeholder="Job Description"
             value={description}
             onChange={e => onChange(e)}
-            required
           />
         </div>
-        <input type="submit" class="btn btn-primary my-1" />
-        <Link to="btn btn-light my-1" href="/dashboard">
+        <input type="submit" className="btn btn-primary my-1" />
+        <Link className="btn btn-light my-1" to="/dashboard">
           Go Back
         </Link>
       </form>
